@@ -11,7 +11,11 @@
 		in
 		pkgs.mkShell {
 			packages = with pkgs; [
-				python312Packages.ipython
+					(pkgs.python3.withPackages (python-pkgs: [
+						python-pkgs.ipython
+						python-pkgs.tkinter
+    			]))
+
 			];
 		};
 	};

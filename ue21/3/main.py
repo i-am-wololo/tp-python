@@ -25,3 +25,4 @@ def recherche_pire_cas(n, x):
 
 
 # graphe recherche
+
