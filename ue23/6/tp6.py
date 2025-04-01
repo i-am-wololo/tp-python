@@ -31,19 +31,25 @@ def save_pgm(name: str, tab: list[list[int]]):
 
 def dessine_rectangle(tab_image: list[list[int]],  x: int, y: int, height: int, length: int, width: int):
     # 4 lines to draw with 
-    for i in range(length):
+    for i in range(length+1):
         # dessine 2 traits horizontaux
         for j in range(width):
             tab_image[y+j][x+i] = 255
             tab_image[y+height+j][x+i] = 255
-            print(y+height+j)
-    
+        
+    for i in range(height+1) :
+        # dessine 2 traits verticaux de longueur height et d'épaisseur width
+        for j in range(width):
+            tab_image[y+i][x+j] = 255
+            tab_image[y+i][x+length+j] = 255
 
 
 # entry point
 def main():
-    data = [[0 for j in range(720)] for i in range(1000)];
-    dessine_rectangle(data, 40, 40, 100, 100, 80)
+    data = [[0 for j in range(500)] for i in range(500)];
+    dessine_rectangle(data, 0, 0, 20, 20, 2)
+    for i in data:
+        print(i)
     save_pgm("empty.pgm", data);
 
 if __name__ == "__main__":
